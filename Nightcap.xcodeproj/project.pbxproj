@@ -1,0 +1,820 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		026C30C1D49C107B765CDC46 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0E4BCBD072091820051DC /* Brand.swift */; };
+		09CE3CD8D74C3EC47B76CCBB /* NightcapCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3426073CA81FFA2535608141 /* NightcapCore */; };
+		0CE088D7EC77A06FDBD4682C /* NightcapShieldAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BC44428F2BB7C6D8674B0B49 /* NightcapShieldAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		170187358D21B2385BD6188F /* SessionScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F79D02AB62B258AC6E2CC /* SessionScheduler.swift */; };
+		1EF27F8BA983AAE6FF58BBA7 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA4F254BCF02EEBAD687193 /* AppModel.swift */; };
+		229F29205B6777C17A2FF66D /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A5DA2FF390FEDB555ABAA /* ChecklistView.swift */; };
+		258CE3223F7FC6356B0D6AFA /* ShieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA28F058017E75C59E7D80F2 /* ShieldController.swift */; };
+		4792F235F4D2BD3163F4F58E /* NightcapShieldConfig.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A587BAD0490364AE9C673D37 /* NightcapShieldConfig.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		488A816EEF2FD562B4C1EF82 /* HoldToConfirmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6E02F3960088B49A763046 /* HoldToConfirmButton.swift */; };
+		4D46FFEB9E18B305D7EBFDC2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF08CAFF792D4EF43BFC86 /* SettingsView.swift */; };
+		521B7DD3CADBD0593D7D2A2F /* ShieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA28F058017E75C59E7D80F2 /* ShieldController.swift */; };
+		54E9064107CCB7051DA11B6B /* ShieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA28F058017E75C59E7D80F2 /* ShieldController.swift */; };
+		56EC9BE194E37E7A0A68F5A6 /* SessionScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F79D02AB62B258AC6E2CC /* SessionScheduler.swift */; };
+		58EEC6C7344BB2C6F2513DCA /* SessionScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F79D02AB62B258AC6E2CC /* SessionScheduler.swift */; };
+		59A3528472F2769ED09C558F /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0E4BCBD072091820051DC /* Brand.swift */; };
+		5EEE1A3164135006C7327076 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3257F4258D69D0A544E9AD /* Assets.xcassets */; };
+		5F319B2FFD738526977D70FC /* StartSessionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA76903962BA331B916DEA0 /* StartSessionSheet.swift */; };
+		6D609663DEFD64F12F64E27E /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0E4BCBD072091820051DC /* Brand.swift */; };
+		74522484A378A7734CE4D30B /* ShieldActionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579D1E4D8B434C1A3F614D82 /* ShieldActionExtension.swift */; };
+		864AC58658241C4EE47345A5 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3115F5957DBF305EB25C0C2A /* Theme.swift */; };
+		8EB13B61D666297D6AAD1050 /* BlockSelections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626F6C4173CDC34C7A50B0C2 /* BlockSelections.swift */; };
+		94D0D35FC7F68B132DEC0CA0 /* SessionScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F79D02AB62B258AC6E2CC /* SessionScheduler.swift */; };
+		96A8014195BD6781244F1A4E /* BlockSelections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626F6C4173CDC34C7A50B0C2 /* BlockSelections.swift */; };
+		9E39A3AC856796925108A27F /* NightcapCore in Frameworks */ = {isa = PBXBuildFile; productRef = FCF6B67ADFA484949669F47E /* NightcapCore */; };
+		A0D6E6728B4DAAB5D5917AF0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BAFC3AB1C8805748C56B8 /* HomeView.swift */; };
+		ABC3CD17C8060EEF7A126139 /* NightcapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2E156347CDFD3586FEC4F /* NightcapApp.swift */; };
+		B3C6DD35C48DEB822AF8730D /* NightcapCore in Frameworks */ = {isa = PBXBuildFile; productRef = E7CA8DE38BCDCBF160DB67D8 /* NightcapCore */; };
+		BD564AC9E76062864E6B8558 /* ShieldConfigurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91448BA9EE0AC00515C43FB5 /* ShieldConfigurationExtension.swift */; };
+		C71315BC3708A12D3E9CB300 /* NightcapMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8EE4DE0CEDB7341DF4CEB69D /* NightcapMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C8874F3355DE0F90B284A3F7 /* NightcapCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0F80ED1FEA192DA9D44FED32 /* NightcapCore */; };
+		CB321D5E6D799EC294A8379A /* ShieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA28F058017E75C59E7D80F2 /* ShieldController.swift */; };
+		D61306452E5C59E5EC27E8D5 /* NightcapMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3272B3E6B74ED5ECAB914B2E /* NightcapMonitor.swift */; };
+		D9C1FC2E7F1D09ED36C899F1 /* BlockSelections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626F6C4173CDC34C7A50B0C2 /* BlockSelections.swift */; };
+		E433A044937E6718711466D7 /* ChallengePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE09D36A4ADD88226A4F424 /* ChallengePlaceholderView.swift */; };
+		EC995E713BF7F1021ED2985F /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0E4BCBD072091820051DC /* Brand.swift */; };
+		F88CBD38EADAEE2CA08ABBDA /* BlockSelections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626F6C4173CDC34C7A50B0C2 /* BlockSelections.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1230B078749D3D64760E33D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3109507919E2E8769B98086 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E7411EFD6BEB0EEEA2483AA9;
+			remoteInfo = NightcapMonitor;
+		};
+		497D85F2DC05ED835906203E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3109507919E2E8769B98086 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A6E9DC902DF011935215BDF;
+			remoteInfo = NightcapShieldAction;
+		};
+		C6F5BE96B6793205F59DA05D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3109507919E2E8769B98086 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B50A64B8CA31A8C8B447910;
+			remoteInfo = NightcapShieldConfig;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8F8CB64A663A4F1AE42BD521 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C71315BC3708A12D3E9CB300 /* NightcapMonitor.appex in Embed Foundation Extensions */,
+				4792F235F4D2BD3163F4F58E /* NightcapShieldConfig.appex in Embed Foundation Extensions */,
+				0CE088D7EC77A06FDBD4682C /* NightcapShieldAction.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		075D5EB5ECED18AC500BBA6A /* NightcapMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NightcapMonitor.entitlements; sourceTree = "<group>"; };
+		07BE59203CCD1E91466962C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		189BE62BD2CE62757DC6D66B /* NightcapShieldAction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NightcapShieldAction.entitlements; sourceTree = "<group>"; };
+		2A7F79D02AB62B258AC6E2CC /* SessionScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionScheduler.swift; sourceTree = "<group>"; };
+		3115F5957DBF305EB25C0C2A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		3272B3E6B74ED5ECAB914B2E /* NightcapMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightcapMonitor.swift; sourceTree = "<group>"; };
+		405A5DA2FF390FEDB555ABAA /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
+		46B12CBE02388788C60A02B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		579D1E4D8B434C1A3F614D82 /* ShieldActionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldActionExtension.swift; sourceTree = "<group>"; };
+		626F6C4173CDC34C7A50B0C2 /* BlockSelections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockSelections.swift; sourceTree = "<group>"; };
+		62E2E156347CDFD3586FEC4F /* NightcapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightcapApp.swift; sourceTree = "<group>"; };
+		6AA4F254BCF02EEBAD687193 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		6D6E02F3960088B49A763046 /* HoldToConfirmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldToConfirmButton.swift; sourceTree = "<group>"; };
+		7E7C03A55A24FDDA5E909929 /* Nightcap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nightcap.entitlements; sourceTree = "<group>"; };
+		829C9385F49FF4D7DAB4C185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8A90DE26D91EAE4D1AC62AA8 /* Nightcap.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Nightcap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EE4DE0CEDB7341DF4CEB69D /* NightcapMonitor.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = NightcapMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		91448BA9EE0AC00515C43FB5 /* ShieldConfigurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldConfigurationExtension.swift; sourceTree = "<group>"; };
+		9AE09D36A4ADD88226A4F424 /* ChallengePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengePlaceholderView.swift; sourceTree = "<group>"; };
+		A587BAD0490364AE9C673D37 /* NightcapShieldConfig.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = NightcapShieldConfig.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A652784D3C2A204D6B384DD0 /* NightcapShieldConfig.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NightcapShieldConfig.entitlements; sourceTree = "<group>"; };
+		AFA76903962BA331B916DEA0 /* StartSessionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSessionSheet.swift; sourceTree = "<group>"; };
+		B5A0E4BCBD072091820051DC /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		B99BAFC3AB1C8805748C56B8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B9B3594CCED1E021496A5C20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BC44428F2BB7C6D8674B0B49 /* NightcapShieldAction.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = NightcapShieldAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEBF08CAFF792D4EF43BFC86 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DA28F058017E75C59E7D80F2 /* ShieldController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldController.swift; sourceTree = "<group>"; };
+		DD3257F4258D69D0A544E9AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAD6E423F1F1488D16799472 /* NightcapCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NightcapCore; path = Packages/NightcapCore; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3077F382CFAC18323C1174B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E39A3AC856796925108A27F /* NightcapCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C415138B8142546B8D0CD57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8874F3355DE0F90B284A3F7 /* NightcapCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F094F4AEB18FDD734F84FF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3C6DD35C48DEB822AF8730D /* NightcapCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2C548E2E4240AE18AF6ABE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09CE3CD8D74C3EC47B76CCBB /* NightcapCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A1B77D9BB6123D2758F5C7A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				626F6C4173CDC34C7A50B0C2 /* BlockSelections.swift */,
+				B5A0E4BCBD072091820051DC /* Brand.swift */,
+				2A7F79D02AB62B258AC6E2CC /* SessionScheduler.swift */,
+				DA28F058017E75C59E7D80F2 /* ShieldController.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		3430D8A4A53D472DC7A2C9F7 /* NightcapShieldAction */ = {
+			isa = PBXGroup;
+			children = (
+				07BE59203CCD1E91466962C0 /* Info.plist */,
+				189BE62BD2CE62757DC6D66B /* NightcapShieldAction.entitlements */,
+				579D1E4D8B434C1A3F614D82 /* ShieldActionExtension.swift */,
+			);
+			path = NightcapShieldAction;
+			sourceTree = "<group>";
+		};
+		50DCCA27588463FDEDE80C4A = {
+			isa = PBXGroup;
+			children = (
+				AD32246FF488384B05E5B75B /* Nightcap */,
+				C5F9A7AB34B349B02F2CA06B /* NightcapMonitor */,
+				3430D8A4A53D472DC7A2C9F7 /* NightcapShieldAction */,
+				AE97ADC7D109CBF7942C188B /* NightcapShieldConfig */,
+				690175342BE8C60994AEA4C6 /* Packages */,
+				2A1B77D9BB6123D2758F5C7A /* Shared */,
+				6AC82BF5678183C22EAB7A45 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		690175342BE8C60994AEA4C6 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				FAD6E423F1F1488D16799472 /* NightcapCore */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		6AC82BF5678183C22EAB7A45 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A90DE26D91EAE4D1AC62AA8 /* Nightcap.app */,
+				8EE4DE0CEDB7341DF4CEB69D /* NightcapMonitor.appex */,
+				BC44428F2BB7C6D8674B0B49 /* NightcapShieldAction.appex */,
+				A587BAD0490364AE9C673D37 /* NightcapShieldConfig.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AACC7041E234CC607FDBC2FE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9AE09D36A4ADD88226A4F424 /* ChallengePlaceholderView.swift */,
+				405A5DA2FF390FEDB555ABAA /* ChecklistView.swift */,
+				6D6E02F3960088B49A763046 /* HoldToConfirmButton.swift */,
+				B99BAFC3AB1C8805748C56B8 /* HomeView.swift */,
+				CEBF08CAFF792D4EF43BFC86 /* SettingsView.swift */,
+				AFA76903962BA331B916DEA0 /* StartSessionSheet.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AD32246FF488384B05E5B75B /* Nightcap */ = {
+			isa = PBXGroup;
+			children = (
+				6AA4F254BCF02EEBAD687193 /* AppModel.swift */,
+				DD3257F4258D69D0A544E9AD /* Assets.xcassets */,
+				B9B3594CCED1E021496A5C20 /* Info.plist */,
+				7E7C03A55A24FDDA5E909929 /* Nightcap.entitlements */,
+				62E2E156347CDFD3586FEC4F /* NightcapApp.swift */,
+				3115F5957DBF305EB25C0C2A /* Theme.swift */,
+				AACC7041E234CC607FDBC2FE /* Views */,
+			);
+			path = Nightcap;
+			sourceTree = "<group>";
+		};
+		AE97ADC7D109CBF7942C188B /* NightcapShieldConfig */ = {
+			isa = PBXGroup;
+			children = (
+				829C9385F49FF4D7DAB4C185 /* Info.plist */,
+				A652784D3C2A204D6B384DD0 /* NightcapShieldConfig.entitlements */,
+				91448BA9EE0AC00515C43FB5 /* ShieldConfigurationExtension.swift */,
+			);
+			path = NightcapShieldConfig;
+			sourceTree = "<group>";
+		};
+		C5F9A7AB34B349B02F2CA06B /* NightcapMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				46B12CBE02388788C60A02B9 /* Info.plist */,
+				075D5EB5ECED18AC500BBA6A /* NightcapMonitor.entitlements */,
+				3272B3E6B74ED5ECAB914B2E /* NightcapMonitor.swift */,
+			);
+			path = NightcapMonitor;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A6E9DC902DF011935215BDF /* NightcapShieldAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED5A85D03EE0081A9F57627F /* Build configuration list for PBXNativeTarget "NightcapShieldAction" */;
+			buildPhases = (
+				582CF1C3F076B0B55C7C2A1D /* Sources */,
+				D2C548E2E4240AE18AF6ABE2 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NightcapShieldAction;
+			packageProductDependencies = (
+				3426073CA81FFA2535608141 /* NightcapCore */,
+			);
+			productName = NightcapShieldAction;
+			productReference = BC44428F2BB7C6D8674B0B49 /* NightcapShieldAction.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		4AA3BD788CD5DD8EEECCBD5D /* Nightcap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48348DD5E0A97C8488037589 /* Build configuration list for PBXNativeTarget "Nightcap" */;
+			buildPhases = (
+				0BF2B2FC1472036F0F9D495D /* Sources */,
+				7EB3649302580EF291DA444F /* Resources */,
+				6C415138B8142546B8D0CD57 /* Frameworks */,
+				8F8CB64A663A4F1AE42BD521 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF536FD1E9D6B70EE6FEB047 /* PBXTargetDependency */,
+				41F06ECF4C52C2BBD157C2A4 /* PBXTargetDependency */,
+				F53B72703606D814228A6EE1 /* PBXTargetDependency */,
+			);
+			name = Nightcap;
+			packageProductDependencies = (
+				0F80ED1FEA192DA9D44FED32 /* NightcapCore */,
+			);
+			productName = Nightcap;
+			productReference = 8A90DE26D91EAE4D1AC62AA8 /* Nightcap.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5B50A64B8CA31A8C8B447910 /* NightcapShieldConfig */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDB12395399E84695639EABE /* Build configuration list for PBXNativeTarget "NightcapShieldConfig" */;
+			buildPhases = (
+				47007347E81918585FA750DF /* Sources */,
+				3077F382CFAC18323C1174B1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NightcapShieldConfig;
+			packageProductDependencies = (
+				FCF6B67ADFA484949669F47E /* NightcapCore */,
+			);
+			productName = NightcapShieldConfig;
+			productReference = A587BAD0490364AE9C673D37 /* NightcapShieldConfig.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		E7411EFD6BEB0EEEA2483AA9 /* NightcapMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B55EC766CE452F0B1DBA032 /* Build configuration list for PBXNativeTarget "NightcapMonitor" */;
+			buildPhases = (
+				46C5B11B68864953EEDEFA1B /* Sources */,
+				6F094F4AEB18FDD734F84FF7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NightcapMonitor;
+			packageProductDependencies = (
+				E7CA8DE38BCDCBF160DB67D8 /* NightcapCore */,
+			);
+			productName = NightcapMonitor;
+			productReference = 8EE4DE0CEDB7341DF4CEB69D /* NightcapMonitor.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F3109507919E2E8769B98086 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					4A6E9DC902DF011935215BDF = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					4AA3BD788CD5DD8EEECCBD5D = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					5B50A64B8CA31A8C8B447910 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					E7411EFD6BEB0EEEA2483AA9 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 64A96286F99F04B0FED4B0CC /* Build configuration list for PBXProject "Nightcap" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 50DCCA27588463FDEDE80C4A;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				1726F89BF9D7728CFBFD1312 /* XCLocalSwiftPackageReference "Packages/NightcapCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 6AC82BF5678183C22EAB7A45 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4AA3BD788CD5DD8EEECCBD5D /* Nightcap */,
+				E7411EFD6BEB0EEEA2483AA9 /* NightcapMonitor */,
+				5B50A64B8CA31A8C8B447910 /* NightcapShieldConfig */,
+				4A6E9DC902DF011935215BDF /* NightcapShieldAction */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7EB3649302580EF291DA444F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EEE1A3164135006C7327076 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0BF2B2FC1472036F0F9D495D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EF27F8BA983AAE6FF58BBA7 /* AppModel.swift in Sources */,
+				F88CBD38EADAEE2CA08ABBDA /* BlockSelections.swift in Sources */,
+				6D609663DEFD64F12F64E27E /* Brand.swift in Sources */,
+				E433A044937E6718711466D7 /* ChallengePlaceholderView.swift in Sources */,
+				229F29205B6777C17A2FF66D /* ChecklistView.swift in Sources */,
+				488A816EEF2FD562B4C1EF82 /* HoldToConfirmButton.swift in Sources */,
+				A0D6E6728B4DAAB5D5917AF0 /* HomeView.swift in Sources */,
+				ABC3CD17C8060EEF7A126139 /* NightcapApp.swift in Sources */,
+				170187358D21B2385BD6188F /* SessionScheduler.swift in Sources */,
+				4D46FFEB9E18B305D7EBFDC2 /* SettingsView.swift in Sources */,
+				CB321D5E6D799EC294A8379A /* ShieldController.swift in Sources */,
+				5F319B2FFD738526977D70FC /* StartSessionSheet.swift in Sources */,
+				864AC58658241C4EE47345A5 /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46C5B11B68864953EEDEFA1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96A8014195BD6781244F1A4E /* BlockSelections.swift in Sources */,
+				59A3528472F2769ED09C558F /* Brand.swift in Sources */,
+				D61306452E5C59E5EC27E8D5 /* NightcapMonitor.swift in Sources */,
+				56EC9BE194E37E7A0A68F5A6 /* SessionScheduler.swift in Sources */,
+				54E9064107CCB7051DA11B6B /* ShieldController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47007347E81918585FA750DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8EB13B61D666297D6AAD1050 /* BlockSelections.swift in Sources */,
+				026C30C1D49C107B765CDC46 /* Brand.swift in Sources */,
+				58EEC6C7344BB2C6F2513DCA /* SessionScheduler.swift in Sources */,
+				BD564AC9E76062864E6B8558 /* ShieldConfigurationExtension.swift in Sources */,
+				258CE3223F7FC6356B0D6AFA /* ShieldController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		582CF1C3F076B0B55C7C2A1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9C1FC2E7F1D09ED36C899F1 /* BlockSelections.swift in Sources */,
+				EC995E713BF7F1021ED2985F /* Brand.swift in Sources */,
+				94D0D35FC7F68B132DEC0CA0 /* SessionScheduler.swift in Sources */,
+				74522484A378A7734CE4D30B /* ShieldActionExtension.swift in Sources */,
+				521B7DD3CADBD0593D7D2A2F /* ShieldController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		41F06ECF4C52C2BBD157C2A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B50A64B8CA31A8C8B447910 /* NightcapShieldConfig */;
+			targetProxy = C6F5BE96B6793205F59DA05D /* PBXContainerItemProxy */;
+		};
+		F53B72703606D814228A6EE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A6E9DC902DF011935215BDF /* NightcapShieldAction */;
+			targetProxy = 497D85F2DC05ED835906203E /* PBXContainerItemProxy */;
+		};
+		FF536FD1E9D6B70EE6FEB047 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E7411EFD6BEB0EEEA2483AA9 /* NightcapMonitor */;
+			targetProxy = 1230B078749D3D64760E33D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		205C9C0D45530A972B3717C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		23068D5A2CC0F204E3570F97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NightcapShieldAction/NightcapShieldAction.entitlements;
+				INFOPLIST_FILE = NightcapShieldAction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.charlottedemas.nightcap.shieldaction;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		27E601CE9674A5D7AF28399F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NightcapMonitor/NightcapMonitor.entitlements;
+				INFOPLIST_FILE = NightcapMonitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.charlottedemas.nightcap.monitor;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4F5B1FCCE3B0BA64BE1C4C83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Nightcap/Nightcap.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Nightcap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.charlottedemas.nightcap;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		895B1C08A2DFEBDBF192B8EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NightcapShieldAction/NightcapShieldAction.entitlements;
+				INFOPLIST_FILE = NightcapShieldAction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.charlottedemas.nightcap.shieldaction;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		993FA96BAB329D99C711C56C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NightcapShieldConfig/NightcapShieldConfig.entitlements;
+				INFOPLIST_FILE = NightcapShieldConfig/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.charlottedemas.nightcap.shieldconfig;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9C1500F5BC4AE061EB433A17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		BCC2AE9A0012AA19347FD5D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NightcapMonitor/NightcapMonitor.entitlements;
+				INFOPLIST_FILE = NightcapMonitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.charlottedemas.nightcap.monitor;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DC30C41C4AE5CD1152243904 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Nightcap/Nightcap.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Nightcap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.charlottedemas.nightcap;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F05E872917B8D95C6A28C7D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NightcapShieldConfig/NightcapShieldConfig.entitlements;
+				INFOPLIST_FILE = NightcapShieldConfig/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.charlottedemas.nightcap.shieldconfig;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		48348DD5E0A97C8488037589 /* Build configuration list for PBXNativeTarget "Nightcap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC30C41C4AE5CD1152243904 /* Debug */,
+				4F5B1FCCE3B0BA64BE1C4C83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5B55EC766CE452F0B1DBA032 /* Build configuration list for PBXNativeTarget "NightcapMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27E601CE9674A5D7AF28399F /* Debug */,
+				BCC2AE9A0012AA19347FD5D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		64A96286F99F04B0FED4B0CC /* Build configuration list for PBXProject "Nightcap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				205C9C0D45530A972B3717C5 /* Debug */,
+				9C1500F5BC4AE061EB433A17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BDB12395399E84695639EABE /* Build configuration list for PBXNativeTarget "NightcapShieldConfig" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				993FA96BAB329D99C711C56C /* Debug */,
+				F05E872917B8D95C6A28C7D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		ED5A85D03EE0081A9F57627F /* Build configuration list for PBXNativeTarget "NightcapShieldAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23068D5A2CC0F204E3570F97 /* Debug */,
+				895B1C08A2DFEBDBF192B8EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		1726F89BF9D7728CFBFD1312 /* XCLocalSwiftPackageReference "Packages/NightcapCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/NightcapCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0F80ED1FEA192DA9D44FED32 /* NightcapCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NightcapCore;
+		};
+		3426073CA81FFA2535608141 /* NightcapCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NightcapCore;
+		};
+		E7CA8DE38BCDCBF160DB67D8 /* NightcapCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NightcapCore;
+		};
+		FCF6B67ADFA484949669F47E /* NightcapCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NightcapCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F3109507919E2E8769B98086 /* Project object */;
+}

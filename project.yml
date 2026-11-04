@@ -1,0 +1,118 @@
+# Generate Nightcap.xcodeproj with:  xcodegen generate
+# Change BUNDLE_PREFIX / the App Group here AND in
+# Packages/NightcapCore/Sources/NightcapCore/Storage.swift (AppGroup.identifier).
+name: Nightcap
+
+options:
+  bundleIdPrefix: com.charlottedemas
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    DEVELOPMENT_TEAM: "" # ← your Apple Developer Team ID
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    TARGETED_DEVICE_FAMILY: "1"
+
+packages:
+  NightcapCore:
+    path: Packages/NightcapCore
+
+targetTemplates:
+  ScreenTimeTarget:
+    platform: iOS
+    dependencies:
+      - package: NightcapCore
+    entitlements:
+      path: ${target_name}/${target_name}.entitlements
+      properties:
+        com.apple.developer.family-controls: true
+        com.apple.security.application-groups:
+          - group.com.charlottedemas.nightcap
+
+  ScreenTimeExtension:
+    templates: [ScreenTimeTarget]
+    type: app-extension
+    sources: ["${target_name}", Shared]
+
+targets:
+  Nightcap:
+    type: application
+    templates: [ScreenTimeTarget]
+    sources: [Nightcap, Shared]
+    dependencies:
+      - target: NightcapMonitor
+      - target: NightcapShieldConfig
+      - target: NightcapShieldAction
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.charlottedemas.nightcap
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+    info:
+      path: Nightcap/Info.plist
+      properties:
+        CFBundleDisplayName: Nightcap
+        UILaunchScreen:
+          UIColorName: LaunchBackground
+        UIUserInterfaceStyle: Dark
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        LSApplicationQueriesSchemes: [uber, lyft]
+        CFBundleURLTypes:
+          - CFBundleURLName: com.charlottedemas.nightcap
+            CFBundleURLSchemes: [nightcap]
+
+  NightcapMonitor:
+    templates: [ScreenTimeExtension]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.charlottedemas.nightcap.monitor
+    info:
+      path: NightcapMonitor/Info.plist
+      properties:
+        CFBundleDisplayName: Nightcap Monitor
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.deviceactivity.monitor-extension
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).NightcapMonitor
+
+  NightcapShieldConfig:
+    templates: [ScreenTimeExtension]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.charlottedemas.nightcap.shieldconfig
+    info:
+      path: NightcapShieldConfig/Info.plist
+      properties:
+        CFBundleDisplayName: Nightcap Shield
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.ManagedSettingsUI.shield-configuration-service
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ShieldConfigurationExtension
+
+  NightcapShieldAction:
+    templates: [ScreenTimeExtension]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.charlottedemas.nightcap.shieldaction
+    info:
+      path: NightcapShieldAction/Info.plist
+      properties:
+        CFBundleDisplayName: Nightcap Shield Action
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.ManagedSettings.shield-action-service
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ShieldActionExtension
+
+schemes:
+  Nightcap:
+    build:
+      targets:
+        Nightcap: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - package: NightcapCore/NightcapCoreTests
