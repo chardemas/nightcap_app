@@ -79,6 +79,25 @@ struct SettingsView: View {
             }
 
             Section {
+                Picker("Difficulty", selection: $model.settings.challengeDifficulty) {
+                    ForEach(ChallengeDifficulty.allCases) { Text($0.title).tag($0) }
+                }
+                Picker("Passing unlocks", selection: $model.settings.unlockScope) {
+                    ForEach(UnlockScope.allCases) { Text($0.title).tag($0) }
+                }
+                if let baseline = model.settings.baseline {
+                    LabeledContent("Sober baseline", value: "\(Int(baseline.reactionMedian * 1000)) ms · \(String(format: "%.1f", baseline.typingCharsPerSecond)) chars/s")
+                }
+                Button(model.settings.baseline == nil ? "Take sober baseline" : "Retake sober baseline") {
+                    model.route = .challenge(.baseline)
+                }
+            } header: {
+                Text("Sobriety Challenge")
+            } footer: {
+                Text("Standard means reaction time can be up to 25% slower than your sober baseline. \"Just that app\" applies when you start the challenge from a blocked app.")
+            }
+
+            Section {
                 if let home = model.settings.home {
                     LabeledContent("Saved", value: home.label)
                 }

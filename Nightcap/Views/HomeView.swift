@@ -14,7 +14,7 @@ struct RootView: View {
         .fontDesign(.rounded)
         .sheet(item: $model.route) { route in
             switch route {
-            case .challenge: ChallengePlaceholderView()
+            case .challenge(let origin): ChallengeView(origin: origin)
             }
         }
     }
@@ -99,7 +99,6 @@ private struct ScreenTimeCard: View {
 struct ActiveSessionCard: View {
     @Environment(AppModel.self) private var model
     let session: Session
-    @State private var confirmingStop = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
@@ -112,20 +111,29 @@ struct ActiveSessionCard: View {
                     .monospacedDigit()
                     .foregroundStyle(Theme.moonlight)
             }
-            Text("Ends at \(session.plannedEnd.formatted(date: .omitted, time: .shortened)). You're covered till then.")
+            Text("Ends at \(time(session.plannedEnd)). You're covered till then.")
                 .foregroundStyle(Theme.dusk)
-            Button("End early", role: .destructive) { confirmingStop = true }
+            if let unlock = session.temporaryUnlock, unlock.until > .now {
+                Label("One app unlocked till \(time(unlock.until))", systemImage: "lock.open")
+                    .font(.footnote)
+                    .foregroundStyle(Theme.amber)
+            }
+            Button(endEarlyTitle) { model.route = .challenge(.endEarly) }
                 .font(.footnote)
                 .foregroundStyle(Theme.dusk)
         }
         .card()
-        .confirmationDialog("End Nightcap now?", isPresented: $confirmingStop, titleVisibility: .visible) {
-            Button("End it", role: .destructive) { model.stopSession() }
-        } message: {
-            // Phase 2 replaces this with the sobriety challenge.
-            Text("Soon this will take a sobriety challenge. For now, it's on the honor system.")
+    }
+
+    private var endEarlyTitle: String {
+        switch model.challengeGate {
+        case .coolingDown(let until): "Next challenge at \(time(until))"
+        case .lockedForNight: "Locked for the night"
+        default: "Sober? End early"
         }
     }
+
+    private func time(_ date: Date) -> String { date.formatted(date: .omitted, time: .shortened) }
 
     private func remaining(at date: Date) -> String {
         let minutes = max(0, Int(session.plannedEnd.timeIntervalSince(date) / 60))

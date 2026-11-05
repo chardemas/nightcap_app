@@ -6,7 +6,7 @@ public enum Feature: String, CaseIterable, Sendable {
     case sobrietyChallenge, exList, shortcutBundle, tabWatch, locationTrigger, checkIn
 
     /// Flip these on as each phase lands.
-    public static let shipped: Set<Feature> = []
+    public static let shipped: Set<Feature> = [.sobrietyChallenge]
 }
 
 /// Every Pre-Game Checklist item from SPEC §2.5.

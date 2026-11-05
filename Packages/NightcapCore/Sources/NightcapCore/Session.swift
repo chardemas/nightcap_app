@@ -12,6 +12,10 @@ public struct Session: Codable, Identifiable, Equatable, Sendable {
     public var trigger: Trigger
     public var unlockedEarly: Bool
     public var challengeAttempts: Int
+    /// When each failed challenge happened. Drives cooldowns and the 3-strike lock.
+    public var challengeFailures: [Date]
+    /// A passed challenge in "just that app" mode lifts one shield briefly.
+    public var temporaryUnlock: TemporaryUnlock?
 
     public init(id: UUID = UUID(), start: Date, plannedEnd: Date, trigger: Trigger) {
         self.id = id
@@ -21,6 +25,8 @@ public struct Session: Codable, Identifiable, Equatable, Sendable {
         actualEnd = nil
         unlockedEarly = false
         challengeAttempts = 0
+        challengeFailures = []
+        temporaryUnlock = nil
     }
 
     public func isActive(at date: Date) -> Bool {
@@ -43,6 +49,32 @@ extension Session {
     /// Clamps a user-picked end time into the range DeviceActivity (and sanity) allow.
     public static func clampedEnd(_ requested: Date, now: Date) -> Date {
         min(max(requested, now.addingTimeInterval(minimumDuration)), now.addingTimeInterval(maximumDuration))
+    }
+}
+
+/// One shielded app, site, or category, unshielded until `until`.
+public struct TemporaryUnlock: Codable, Equatable, Sendable {
+    public var target: BlockedAttempt.Target
+    public var tokenData: Data
+    public var until: Date
+
+    public init(target: BlockedAttempt.Target, tokenData: Data, until: Date) {
+        self.target = target
+        self.tokenData = tokenData
+        self.until = until
+    }
+}
+
+/// What the user tapped "prove it" on, so a passed challenge knows which shield to lift.
+public struct PendingUnlock: Codable, Equatable, Sendable {
+    public var target: BlockedAttempt.Target
+    public var tokenData: Data
+    public var requestedAt: Date
+
+    public init(target: BlockedAttempt.Target, tokenData: Data, requestedAt: Date) {
+        self.target = target
+        self.tokenData = tokenData
+        self.requestedAt = requestedAt
     }
 }
 
@@ -95,6 +127,21 @@ public enum SessionLedger {
 
     /// If a session's planned end passed while nothing was running to notice,
     /// close it out. Returns true if it did.
+    /// Edits the current session in place. No-op if there isn't one.
+    public static func update(_ body: (inout Session) -> Void) {
+        guard var session = NightcapFiles.currentSession.load() else { return }
+        body(&session)
+        try? NightcapFiles.currentSession.save(session)
+    }
+
+    /// Counts a challenge attempt and, if it failed, starts the cooldown.
+    public static func recordChallenge(_ verdict: ChallengeVerdict, at date: Date = .now) {
+        update { session in
+            session.challengeAttempts += 1
+            if !verdict.passed { session.challengeFailures.append(date) }
+        }
+    }
+
     @discardableResult
     public static func finishIfExpired(now: Date = .now) -> Bool {
         guard let session = NightcapFiles.currentSession.load(), session.actualEnd == nil, now >= session.plannedEnd else { return false }

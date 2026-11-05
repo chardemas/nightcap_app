@@ -14,6 +14,7 @@
 		1EF27F8BA983AAE6FF58BBA7 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA4F254BCF02EEBAD687193 /* AppModel.swift */; };
 		229F29205B6777C17A2FF66D /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A5DA2FF390FEDB555ABAA /* ChecklistView.swift */; };
 		258CE3223F7FC6356B0D6AFA /* ShieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA28F058017E75C59E7D80F2 /* ShieldController.swift */; };
+		288BB6F0B2F8E05F1CEE1D10 /* ReactionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF42EAC387097CF4CD5AB81 /* ReactionTestView.swift */; };
 		4792F235F4D2BD3163F4F58E /* NightcapShieldConfig.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A587BAD0490364AE9C673D37 /* NightcapShieldConfig.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		488A816EEF2FD562B4C1EF82 /* HoldToConfirmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6E02F3960088B49A763046 /* HoldToConfirmButton.swift */; };
 		4D46FFEB9E18B305D7EBFDC2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF08CAFF792D4EF43BFC86 /* SettingsView.swift */; };
@@ -25,6 +26,7 @@
 		5EEE1A3164135006C7327076 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3257F4258D69D0A544E9AD /* Assets.xcassets */; };
 		5F319B2FFD738526977D70FC /* StartSessionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA76903962BA331B916DEA0 /* StartSessionSheet.swift */; };
 		6D609663DEFD64F12F64E27E /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0E4BCBD072091820051DC /* Brand.swift */; };
+		6FD0CA8B7CEE20AB0D02D9C8 /* MemoryTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5E77AB4F23C98E3C2483 /* MemoryTestView.swift */; };
 		74522484A378A7734CE4D30B /* ShieldActionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579D1E4D8B434C1A3F614D82 /* ShieldActionExtension.swift */; };
 		864AC58658241C4EE47345A5 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3115F5957DBF305EB25C0C2A /* Theme.swift */; };
 		8EB13B61D666297D6AAD1050 /* BlockSelections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626F6C4173CDC34C7A50B0C2 /* BlockSelections.swift */; };
@@ -39,8 +41,9 @@
 		C8874F3355DE0F90B284A3F7 /* NightcapCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0F80ED1FEA192DA9D44FED32 /* NightcapCore */; };
 		CB321D5E6D799EC294A8379A /* ShieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA28F058017E75C59E7D80F2 /* ShieldController.swift */; };
 		D61306452E5C59E5EC27E8D5 /* NightcapMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3272B3E6B74ED5ECAB914B2E /* NightcapMonitor.swift */; };
+		D642BE738CFFBD3E9D16F58D /* TypingTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CBA7087571F22DDD95F14F /* TypingTestView.swift */; };
 		D9C1FC2E7F1D09ED36C899F1 /* BlockSelections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626F6C4173CDC34C7A50B0C2 /* BlockSelections.swift */; };
-		E433A044937E6718711466D7 /* ChallengePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE09D36A4ADD88226A4F424 /* ChallengePlaceholderView.swift */; };
+		DA5AECAEC9F4F1BD5333C4A1 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90F45B937265456D018EC44 /* ChallengeView.swift */; };
 		EC995E713BF7F1021ED2985F /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0E4BCBD072091820051DC /* Brand.swift */; };
 		F88CBD38EADAEE2CA08ABBDA /* BlockSelections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626F6C4173CDC34C7A50B0C2 /* BlockSelections.swift */; };
 /* End PBXBuildFile section */
@@ -92,6 +95,7 @@
 		2A7F79D02AB62B258AC6E2CC /* SessionScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionScheduler.swift; sourceTree = "<group>"; };
 		3115F5957DBF305EB25C0C2A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		3272B3E6B74ED5ECAB914B2E /* NightcapMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightcapMonitor.swift; sourceTree = "<group>"; };
+		35CBA7087571F22DDD95F14F /* TypingTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingTestView.swift; sourceTree = "<group>"; };
 		405A5DA2FF390FEDB555ABAA /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		46B12CBE02388788C60A02B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		579D1E4D8B434C1A3F614D82 /* ShieldActionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldActionExtension.swift; sourceTree = "<group>"; };
@@ -99,12 +103,12 @@
 		62E2E156347CDFD3586FEC4F /* NightcapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightcapApp.swift; sourceTree = "<group>"; };
 		6AA4F254BCF02EEBAD687193 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		6D6E02F3960088B49A763046 /* HoldToConfirmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldToConfirmButton.swift; sourceTree = "<group>"; };
+		7AF42EAC387097CF4CD5AB81 /* ReactionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionTestView.swift; sourceTree = "<group>"; };
 		7E7C03A55A24FDDA5E909929 /* Nightcap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nightcap.entitlements; sourceTree = "<group>"; };
 		829C9385F49FF4D7DAB4C185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8A90DE26D91EAE4D1AC62AA8 /* Nightcap.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Nightcap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EE4DE0CEDB7341DF4CEB69D /* NightcapMonitor.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = NightcapMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		91448BA9EE0AC00515C43FB5 /* ShieldConfigurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldConfigurationExtension.swift; sourceTree = "<group>"; };
-		9AE09D36A4ADD88226A4F424 /* ChallengePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengePlaceholderView.swift; sourceTree = "<group>"; };
 		A587BAD0490364AE9C673D37 /* NightcapShieldConfig.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = NightcapShieldConfig.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A652784D3C2A204D6B384DD0 /* NightcapShieldConfig.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NightcapShieldConfig.entitlements; sourceTree = "<group>"; };
 		AFA76903962BA331B916DEA0 /* StartSessionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSessionSheet.swift; sourceTree = "<group>"; };
@@ -113,9 +117,11 @@
 		B9B3594CCED1E021496A5C20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BC44428F2BB7C6D8674B0B49 /* NightcapShieldAction.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = NightcapShieldAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBF08CAFF792D4EF43BFC86 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D90F45B937265456D018EC44 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
 		DA28F058017E75C59E7D80F2 /* ShieldController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldController.swift; sourceTree = "<group>"; };
 		DD3257F4258D69D0A544E9AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAD6E423F1F1488D16799472 /* NightcapCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NightcapCore; path = Packages/NightcapCore; sourceTree = SOURCE_ROOT; };
+		FCCA5E77AB4F23C98E3C2483 /* MemoryTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryTestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,17 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		31A14CD112D996A78C8B9E85 /* Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				D90F45B937265456D018EC44 /* ChallengeView.swift */,
+				FCCA5E77AB4F23C98E3C2483 /* MemoryTestView.swift */,
+				7AF42EAC387097CF4CD5AB81 /* ReactionTestView.swift */,
+				35CBA7087571F22DDD95F14F /* TypingTestView.swift */,
+			);
+			path = Challenge;
+			sourceTree = "<group>";
+		};
 		3430D8A4A53D472DC7A2C9F7 /* NightcapShieldAction */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,12 +227,12 @@
 		AACC7041E234CC607FDBC2FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9AE09D36A4ADD88226A4F424 /* ChallengePlaceholderView.swift */,
 				405A5DA2FF390FEDB555ABAA /* ChecklistView.swift */,
 				6D6E02F3960088B49A763046 /* HoldToConfirmButton.swift */,
 				B99BAFC3AB1C8805748C56B8 /* HomeView.swift */,
 				CEBF08CAFF792D4EF43BFC86 /* SettingsView.swift */,
 				AFA76903962BA331B916DEA0 /* StartSessionSheet.swift */,
+				31A14CD112D996A78C8B9E85 /* Challenge */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -348,19 +365,19 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					4A6E9DC902DF011935215BDF = {
-						DevelopmentTeam = "";
+						DevelopmentTeam = 82CA4MVK69;
 						ProvisioningStyle = Automatic;
 					};
 					4AA3BD788CD5DD8EEECCBD5D = {
-						DevelopmentTeam = "";
+						DevelopmentTeam = 82CA4MVK69;
 						ProvisioningStyle = Automatic;
 					};
 					5B50A64B8CA31A8C8B447910 = {
-						DevelopmentTeam = "";
+						DevelopmentTeam = 82CA4MVK69;
 						ProvisioningStyle = Automatic;
 					};
 					E7411EFD6BEB0EEEA2483AA9 = {
-						DevelopmentTeam = "";
+						DevelopmentTeam = 82CA4MVK69;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -409,16 +426,19 @@
 				1EF27F8BA983AAE6FF58BBA7 /* AppModel.swift in Sources */,
 				F88CBD38EADAEE2CA08ABBDA /* BlockSelections.swift in Sources */,
 				6D609663DEFD64F12F64E27E /* Brand.swift in Sources */,
-				E433A044937E6718711466D7 /* ChallengePlaceholderView.swift in Sources */,
+				DA5AECAEC9F4F1BD5333C4A1 /* ChallengeView.swift in Sources */,
 				229F29205B6777C17A2FF66D /* ChecklistView.swift in Sources */,
 				488A816EEF2FD562B4C1EF82 /* HoldToConfirmButton.swift in Sources */,
 				A0D6E6728B4DAAB5D5917AF0 /* HomeView.swift in Sources */,
+				6FD0CA8B7CEE20AB0D02D9C8 /* MemoryTestView.swift in Sources */,
 				ABC3CD17C8060EEF7A126139 /* NightcapApp.swift in Sources */,
+				288BB6F0B2F8E05F1CEE1D10 /* ReactionTestView.swift in Sources */,
 				170187358D21B2385BD6188F /* SessionScheduler.swift in Sources */,
 				4D46FFEB9E18B305D7EBFDC2 /* SettingsView.swift in Sources */,
 				CB321D5E6D799EC294A8379A /* ShieldController.swift in Sources */,
 				5F319B2FFD738526977D70FC /* StartSessionSheet.swift in Sources */,
 				864AC58658241C4EE47345A5 /* Theme.swift in Sources */,
+				D642BE738CFFBD3E9D16F58D /* TypingTestView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,7 +536,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 82CA4MVK69;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -666,7 +686,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 82CA4MVK69;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

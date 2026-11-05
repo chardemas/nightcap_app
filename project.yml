@@ -11,7 +11,7 @@ options:
 
 settings:
   base:
-    DEVELOPMENT_TEAM: "" # ← your Apple Developer Team ID
+    DEVELOPMENT_TEAM: 82CA4MVK69
     CODE_SIGN_STYLE: Automatic
     SWIFT_VERSION: "5.0"
     MARKETING_VERSION: "0.1.0"
@@ -61,6 +61,7 @@ targets:
           UIColorName: LaunchBackground
         UIUserInterfaceStyle: Dark
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UIRequiresFullScreen: true
         LSApplicationQueriesSchemes: [uber, lyft]
         CFBundleURLTypes:
           - CFBundleURLName: com.charlottedemas.nightcap

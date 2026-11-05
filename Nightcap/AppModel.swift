@@ -8,9 +8,24 @@ import UserNotifications
 @MainActor
 @Observable
 final class AppModel {
-    enum Route: Identifiable {
-        case challenge
+    enum Route: Hashable, Identifiable {
+        case challenge(ChallengeOrigin)
         var id: Self { self }
+    }
+
+    enum ChallengeOrigin: Hashable {
+        /// "I'm sober — let me prove it" on a shield.
+        case shield
+        /// "End early" on the home screen.
+        case endEarly
+        /// Sober calibration, from the checklist or Settings.
+        case baseline
+    }
+
+    enum ChallengeOutcome {
+        case unlockedSession
+        case unlockedBriefly(until: Date)
+        case failed(ChallengeVerdict, ChallengeGate)
     }
 
     enum StartError: LocalizedError {
@@ -52,6 +67,12 @@ final class AppModel {
         session = SessionLedger.current()
         // Belt and braces: no active session means no shields, whatever happened while we were gone.
         if session == nil { ShieldController.clear() }
+        // Backup for the monitor extension: put back a shield whose brief unlock ran out.
+        if let unlock = session?.temporaryUnlock, unlock.until <= .now {
+            SessionLedger.update { $0.temporaryUnlock = nil }
+            session = SessionLedger.current()
+            ShieldController.apply(settings: settings, selections: selections)
+        }
         rideAppInstalled = UIApplication.shared.canOpenURL(settings.rideApp.probeURL)
     }
 
@@ -63,7 +84,7 @@ final class AppModel {
             hasBlockSelection: selections.hasAnythingBlocked,
             homeSaved: settings.home != nil,
             rideAppInstalled: rideAppInstalled,
-            baselineTaken: settings.baselineTaken,
+            baselineTaken: settings.baseline != nil,
             exListCount: settings.exListContactIDs.count,
             contactDisguiseEnabled: settings.contactDisguiseEnabled,
             confirmations: settings.selfConfirmations
@@ -105,12 +126,72 @@ final class AppModel {
         session = started
     }
 
-    /// Phase 1: ends immediately. Phase 2 puts the sobriety challenge in front of this.
-    func stopSession() {
+    private func endSessionEarly() {
         SessionScheduler.cancelManualSession()
         ShieldController.clear()
         SessionLedger.finish(unlockedEarly: true)
         session = nil
+    }
+
+    // MARK: - Sobriety Challenge
+
+    /// nil when there's no session to unlock.
+    var challengeGate: ChallengeGate? {
+        session.map { ChallengeRules.gate(for: $0, now: .now) }
+    }
+
+    func finishChallenge(_ scores: ChallengeScores, origin: ChallengeOrigin) -> ChallengeOutcome? {
+        guard let baseline = settings.baseline, session != nil else { return nil }
+        let verdict = ChallengeRules.evaluate(scores, baseline: baseline, difficulty: settings.challengeDifficulty)
+        SessionLedger.recordChallenge(verdict)
+        session = SessionLedger.current()
+
+        guard verdict.passed else {
+            let gate = challengeGate ?? .open
+            if case .coolingDown(let until) = gate { notifyCooldownOver(at: until) }
+            return .failed(verdict, gate)
+        }
+
+        // "Just that app" only makes sense when the user came from a shield.
+        if origin == .shield, settings.unlockScope == .oneAppBriefly, let pending = takePendingUnlock() {
+            let until = SessionScheduler.scheduleReshield(at: .now.addingTimeInterval(ChallengeRules.briefUnlockDuration))
+            SessionLedger.update { $0.temporaryUnlock = TemporaryUnlock(target: pending.target, tokenData: pending.tokenData, until: until) }
+            session = SessionLedger.current()
+            ShieldController.apply(settings: settings, selections: selections)
+            return .unlockedBriefly(until: until)
+        }
+        endSessionEarly()
+        return .unlockedSession
+    }
+
+    /// Saves the sober baseline unless it misses the absolute limits; returns what to redo.
+    func saveBaseline(_ scores: ChallengeScores) -> Set<ChallengeCheck> {
+        let problems = ChallengeRules.baselineProblems(scores)
+        if problems.isEmpty {
+            settings.baseline = ChallengeBaseline(
+                reactionMedian: scores.reactionMedian,
+                typingCharsPerSecond: scores.typingCharsPerSecond,
+                takenAt: .now
+            )
+        }
+        return problems
+    }
+
+    /// The shield the user tapped "prove it" on, if it was recent enough to be this attempt's.
+    private func takePendingUnlock() -> PendingUnlock? {
+        defer { NightcapFiles.pendingUnlock.delete() }
+        guard let pending = NightcapFiles.pendingUnlock.load(),
+              Date.now.timeIntervalSince(pending.requestedAt) < 30 * 60 else { return nil }
+        return pending
+    }
+
+    private func notifyCooldownOver(at date: Date) {
+        let content = UNMutableNotificationContent()
+        content.title = "Cooldown's over"
+        content.body = "You can try the challenge again. Or, hear us out: water."
+        content.userInfo = ["deeplink": "nightcap://challenge"]
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: max(1, date.timeIntervalSinceNow), repeats: false)
+        UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: "nightcap.cooldown", content: content, trigger: trigger))
     }
 
     // MARK: - Ride home
@@ -147,6 +228,6 @@ final class AppModel {
 
     func handle(url: URL) {
         guard url.scheme == "nightcap" else { return }
-        if url.host() == "challenge" { route = .challenge }
+        if url.host() == "challenge" { route = .challenge(.shield) }
     }
 }

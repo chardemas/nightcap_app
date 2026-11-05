@@ -7,10 +7,12 @@ final class ChecklistTests: XCTestCase {
     private func readyContext() -> ChecklistContext {
         ChecklistContext(
             now: now,
+            shippedFeatures: [.sobrietyChallenge],
             screenTimeAuthorized: true,
             hasBlockSelection: true,
             homeSaved: true,
             rideAppInstalled: true,
+            baselineTaken: true,
             confirmations: [
                 .safariCardAutofillOff: now.addingTimeInterval(-60),
                 .appStorePasswordAlways: now.addingTimeInterval(-60),
@@ -19,9 +21,9 @@ final class ChecklistTests: XCTestCase {
     }
 
     func testFreshInstallIsBlockedByEveryRequiredItem() {
-        let report = ChecklistReport(ChecklistContext(now: now))
+        let report = ChecklistReport(ChecklistContext(now: now, shippedFeatures: [.sobrietyChallenge]))
         XCTAssertEqual(Set(report.blockers.map(\.item)), [
-            .screenTimeAuthorized, .blockListSelected, .homeAndRideApp,
+            .screenTimeAuthorized, .blockListSelected, .homeAndRideApp, .soberBaseline,
             .safariCardAutofillOff, .appStorePasswordAlways,
         ])
         XCTAssertFalse(report.canStartAfterReconfirm)
@@ -32,12 +34,14 @@ final class ChecklistTests: XCTestCase {
         let report = ChecklistReport(readyContext())
         XCTAssertTrue(report.blockers.isEmpty)
         XCTAssertTrue(report.canStartAfterReconfirm)
-        XCTAssertEqual(report.covered, 5)
-        XCTAssertEqual(report.total, 7) // + wallet, passcode
+        XCTAssertEqual(report.covered, 6)
+        XCTAssertEqual(report.total, 8) // + wallet, passcode
     }
 
     func testUnshippedFeaturesDontBlock() {
         var context = readyContext()
+        context.shippedFeatures = []
+        context.baselineTaken = false
         context.exListCount = 3
         context.usesCheckIn = true
         XCTAssertTrue(ChecklistReport(context).blockers.isEmpty)

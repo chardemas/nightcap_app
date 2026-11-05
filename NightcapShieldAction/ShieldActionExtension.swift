@@ -40,11 +40,16 @@ final class ShieldActionExtension: ShieldActionDelegate {
         switch action {
         case .primaryButtonPressed:
             log(target, token, .wantsChallenge)
+            // Remember what was tapped, in case the challenge unlocks just this one.
+            if let data = try? JSONEncoder().encode(token) {
+                try? NightcapFiles.pendingUnlock.save(PendingUnlock(target: target, tokenData: data, requestedAt: .now))
+            }
             postChallengeNotification { completionHandler(.close) }
         case .secondaryButtonPressed:
             log(target, token, .gaveUp)
             completionHandler(.close)
-        @unknown default:
+        default:
+            // Submenu buttons (newer SDKs) aren't configured on Nightcap's shield.
             completionHandler(.close)
         }
     }

@@ -78,4 +78,5 @@ public enum NightcapFiles {
     public static var currentSession: JSONFile<Session> { JSONFile("current-session.json") }
     public static var sessionHistory: JSONFile<[Session]> { JSONFile("sessions.json") }
     public static var attempts: JSONFile<[BlockedAttempt]> { JSONFile("attempts.json") }
+    public static var pendingUnlock: JSONFile<PendingUnlock> { JSONFile("pending-unlock.json") }
 }

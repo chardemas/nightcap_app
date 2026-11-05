@@ -15,8 +15,17 @@ final class NightcapMonitor: DeviceActivityMonitor {
 
     override func intervalDidEnd(for activity: DeviceActivityName) {
         super.intervalDidEnd(for: activity)
-        guard activity == .manualSession else { return }
-        ShieldController.clear()
-        SessionLedger.finish()
+        switch activity {
+        case .manualSession:
+            ShieldController.clear()
+            SessionLedger.finish()
+        case .briefUnlock:
+            // The "just that app" unlock is over: put its shield back.
+            guard SessionLedger.current() != nil else { return }
+            SessionLedger.update { $0.temporaryUnlock = nil }
+            ShieldController.apply()
+        default:
+            break
+        }
     }
 }

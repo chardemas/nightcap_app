@@ -31,6 +31,8 @@ struct ChecklistView: View {
     private func destination(for item: ChecklistItem) -> some View {
         if item.walkthrough != nil {
             WalkthroughView(item: item)
+        } else if item == .soberBaseline {
+            BaselineLauncher()
         } else {
             // Every auto-verified Phase 1 item is fixed from Settings.
             SettingsView()
@@ -130,5 +132,25 @@ struct WalkthroughView: View {
             .nightBackground()
             .navigationTitle(item.title)
         }
+    }
+}
+
+/// Pushed from the checklist: hands off to the full-screen calibration.
+private struct BaselineLauncher: View {
+    @Environment(AppModel.self) private var model
+
+    var body: some View {
+        VStack(spacing: 16) {
+            Text("Takes about a minute. Do it sober.")
+                .foregroundStyle(Theme.dusk)
+            Button(model.settings.baseline == nil ? "Take the sober baseline" : "Retake the sober baseline") {
+                model.route = .challenge(.baseline)
+            }
+            .buttonStyle(GlowButtonStyle())
+        }
+        .padding()
+        .frame(maxHeight: .infinity)
+        .nightBackground()
+        .navigationTitle(ChecklistItem.soberBaseline.title)
     }
 }

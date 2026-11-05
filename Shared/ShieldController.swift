@@ -15,10 +15,14 @@ extension ManagedSettingsStore.Name {
 /// start/end), and the shield action extension (food cap override).
 enum ShieldController {
     static func apply(settings: NightcapSettings = NightcapFiles.settings.load() ?? NightcapSettings(),
-                      selections: BlockSelections = .load()) {
+                      selections: BlockSelections = .load(),
+                      unlock: TemporaryUnlock? = SessionLedger.current()?.temporaryUnlock,
+                      now: Date = .now) {
         let store = ManagedSettingsStore(named: .nightcap)
-        let allowedApps = selections.allowed.applicationTokens
-        let allowedSites = selections.allowed.webDomainTokens
+        // A passed challenge in "just that app" mode exempts one token until it expires.
+        let exempt = Exemption(unlock.flatMap { $0.until > now ? $0 : nil })
+        let allowedApps = selections.allowed.applicationTokens.union(exempt.apps)
+        let allowedSites = selections.allowed.webDomainTokens.union(exempt.sites)
 
         var apps = selections.blocked.applicationTokens
         if settings.foodDelivery == .block { apps.formUnion(selections.foodDelivery.applicationTokens) }
@@ -27,7 +31,7 @@ enum ShieldController {
 
         // A category shield skips anything on the allowlist, which is how ride
         // apps stay open inside e.g. "Travel" or "Navigation".
-        let categories = selections.blocked.categoryTokens
+        let categories = selections.blocked.categoryTokens.subtracting(exempt.categories)
         store.shield.applicationCategories = categories.isEmpty ? nil : .specific(categories, except: allowedApps)
         store.shield.webDomainCategories = categories.isEmpty ? nil : .specific(categories, except: allowedSites)
 
@@ -52,6 +56,25 @@ enum ShieldController {
     /// "Yes, I'm sure" on the food delivery shield: open food apps for the rest of the session.
     static func liftFoodCap() {
         ManagedSettingsStore(named: .nightcapFood).clearAllSettings()
+    }
+
+    private struct Exemption {
+        var apps = Set<ApplicationToken>()
+        var sites = Set<WebDomainToken>()
+        var categories = Set<ActivityCategoryToken>()
+
+        init(_ unlock: TemporaryUnlock?) {
+            guard let unlock else { return }
+            let decoder = JSONDecoder()
+            switch unlock.target {
+            case .application:
+                if let token = try? decoder.decode(ApplicationToken.self, from: unlock.tokenData) { apps.insert(token) }
+            case .webDomain:
+                if let token = try? decoder.decode(WebDomainToken.self, from: unlock.tokenData) { sites.insert(token) }
+            case .category:
+                if let token = try? decoder.decode(ActivityCategoryToken.self, from: unlock.tokenData) { categories.insert(token) }
+            }
+        }
     }
 
     private static func webFilter(for settings: NightcapSettings) -> WebContentSettings.FilterPolicy? {

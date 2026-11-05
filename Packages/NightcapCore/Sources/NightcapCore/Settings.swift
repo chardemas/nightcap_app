@@ -14,8 +14,11 @@ public struct NightcapSettings: Codable, Equatable, Sendable {
     /// When the user last hold-confirmed each self-confirmed checklist item.
     public var selfConfirmations: [ChecklistItem: Date]
 
+    public var baseline: ChallengeBaseline?
+    public var challengeDifficulty: ChallengeDifficulty
+    public var unlockScope: UnlockScope
+
     // Placeholders for later phases, so the checklist can already reason about them.
-    public var baselineTaken: Bool
     public var exListContactIDs: [String]
     public var contactDisguiseEnabled: Bool
 
@@ -28,7 +31,9 @@ public struct NightcapSettings: Codable, Equatable, Sendable {
         denyAppRemoval: Bool = true,
         foodDelivery: FoodDeliveryPolicy = .cap,
         selfConfirmations: [ChecklistItem: Date] = [:],
-        baselineTaken: Bool = false,
+        baseline: ChallengeBaseline? = nil,
+        challengeDifficulty: ChallengeDifficulty = .standard,
+        unlockScope: UnlockScope = .wholeSession,
         exListContactIDs: [String] = [],
         contactDisguiseEnabled: Bool = false
     ) {
@@ -40,7 +45,9 @@ public struct NightcapSettings: Codable, Equatable, Sendable {
         self.denyAppRemoval = denyAppRemoval
         self.foodDelivery = foodDelivery
         self.selfConfirmations = selfConfirmations
-        self.baselineTaken = baselineTaken
+        self.baseline = baseline
+        self.challengeDifficulty = challengeDifficulty
+        self.unlockScope = unlockScope
         self.exListContactIDs = exListContactIDs
         self.contactDisguiseEnabled = contactDisguiseEnabled
     }
@@ -58,7 +65,9 @@ public struct NightcapSettings: Codable, Equatable, Sendable {
         denyAppRemoval = try c.decodeIfPresent(Bool.self, forKey: .denyAppRemoval) ?? d.denyAppRemoval
         foodDelivery = try c.decodeIfPresent(FoodDeliveryPolicy.self, forKey: .foodDelivery) ?? d.foodDelivery
         selfConfirmations = try c.decodeIfPresent([ChecklistItem: Date].self, forKey: .selfConfirmations) ?? d.selfConfirmations
-        baselineTaken = try c.decodeIfPresent(Bool.self, forKey: .baselineTaken) ?? d.baselineTaken
+        baseline = try c.decodeIfPresent(ChallengeBaseline.self, forKey: .baseline)
+        challengeDifficulty = try c.decodeIfPresent(ChallengeDifficulty.self, forKey: .challengeDifficulty) ?? d.challengeDifficulty
+        unlockScope = try c.decodeIfPresent(UnlockScope.self, forKey: .unlockScope) ?? d.unlockScope
         exListContactIDs = try c.decodeIfPresent([String].self, forKey: .exListContactIDs) ?? d.exListContactIDs
         contactDisguiseEnabled = try c.decodeIfPresent(Bool.self, forKey: .contactDisguiseEnabled) ?? d.contactDisguiseEnabled
     }
